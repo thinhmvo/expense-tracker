@@ -1,7 +1,6 @@
 package org.example;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 public class BalanceCalculator {
     private BigDecimal accBal;
@@ -20,8 +19,12 @@ public class BalanceCalculator {
         this.income = income;
     }
 
-    public BigDecimal calculateBal() {
-       return accBal.subtract(itemCost);
+    public BigDecimal buyGroceries() {
+       return accBal = accBal.subtract(itemCost);
+    }
+
+    public BigDecimal getAccBal() {
+        return accBal;
     }
 
     public BigDecimal addMoney() {
