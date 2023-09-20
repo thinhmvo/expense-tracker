@@ -7,28 +7,27 @@ public class BalanceCalculator {
     private BigDecimal itemCost;
 
     private BigDecimal income;
-    public BalanceCalculator(BigDecimal accBal, BigDecimal itemCost) {
+    public BalanceCalculator(BigDecimal accBal) {
 
         this.accBal = accBal;
 
-        this.itemCost = itemCost;
+
 
     }
 
-    public BalanceCalculator(BigDecimal income) {
-        this.income = income;
-    }
 
-    public BigDecimal buyGroceries() {
+
+
+    public BigDecimal buyGroceries(BigDecimal itemCost) {
        return accBal = accBal.subtract(itemCost);
+    }
+
+    public BigDecimal deposit(BigDecimal incomNum) {
+        return accBal.add(incomNum);
     }
 
     public BigDecimal getAccBal() {
         return accBal;
-    }
-
-    public BigDecimal addMoney() {
-        return accBal.add(income);
     }
 
 

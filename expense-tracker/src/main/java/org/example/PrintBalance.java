@@ -6,7 +6,7 @@ import java.text.NumberFormat;
 public class PrintBalance {
 
     private BalanceCalculator calculator;
-    String userName;
+    private String userName;
 
     private final NumberFormat currency;
 
@@ -17,7 +17,7 @@ public class PrintBalance {
     }
 
     public void printBalance() {
-        System.out.println("++++++ WELCOME " + userName + " ++++++");
+        System.out.println("++++++ WELCOME " + userName.toUpperCase() + " ++++++");
         System.out.println("------ YOUR ACCOUNT BALANCE IS ------");
         BigDecimal getAccBal =calculator.getAccBal();
         String accFormatted = currency.format(getAccBal);
