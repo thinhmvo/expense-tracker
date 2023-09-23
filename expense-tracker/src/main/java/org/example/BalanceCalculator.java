@@ -3,32 +3,19 @@ package org.example;
 import java.math.BigDecimal;
 
 public class BalanceCalculator {
-    private BigDecimal accBal;
-    private BigDecimal itemCost;
 
-    private BigDecimal income;
-    public BalanceCalculator(BigDecimal accBal) {
+    private UserDetail user;
+    private ItemDetail item;
+    public BalanceCalculator() {}
 
-        this.accBal = accBal;
-
-
-
-    }
+//    Needs to connect the user to the list of object then make the calculation
+//    Possibly the list of object needs a credit variable to store sum credit amount.
 
 
 
 
-    public BigDecimal buyGroceries(BigDecimal itemCost) {
-       return accBal = accBal.subtract(itemCost);
-    }
 
-    public BigDecimal deposit(BigDecimal incomNum) {
-        return accBal.add(incomNum);
-    }
 
-    public BigDecimal getAccBal() {
-        return accBal;
-    }
 
 
 }

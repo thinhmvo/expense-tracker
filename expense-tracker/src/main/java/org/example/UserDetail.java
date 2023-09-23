@@ -12,35 +12,19 @@ public class UserDetail {
         this.userBankAccount = userBankAccount;
     }
 
-    public String getFirstName() {
-        return firstName;
+
+
+    private BigDecimal userBankAccount;
+
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    BigDecimal userBankAccount;
-
-    String firstName;
-    String lastName;
-    String userId;
+    private String fullName;
 
     public UserDetail(){};
 
