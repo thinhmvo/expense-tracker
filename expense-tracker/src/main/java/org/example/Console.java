@@ -1,9 +1,8 @@
 package org.example;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.text.NumberFormat;
+import java.util.*;
 
 // Should the console use to create and act as a program run application
 
@@ -23,8 +22,7 @@ public class Console {
     private static Scanner scanner = new Scanner(System.in);
 
 
-
-    //Prompt user input to set up userAccount Balance
+    //Get number input
     private BigDecimal getNumberInput(String prompt) {
         double setBalance;
 
@@ -57,6 +55,7 @@ public class Console {
         return userInput;
     }
 
+    //Set up user information
     public UserDetail createUser() {
         UserDetail newUser = new UserDetail();
 
@@ -69,11 +68,13 @@ public class Console {
         return newUser;
     }
 
+    //Create item
     private ItemDetail createItemDetail() {
         ItemDetail newItem = new ItemDetail();
-        String setItemName = getStringInput("What is the item name? ");
-        String setItemDescription = getStringInput("What is the item description? ");
-        BigDecimal setItemCost = getNumberInput("What is the cost of the item? ");
+
+        String setItemName = getStringInput("What is the item? ");
+        String setItemDescription = getStringInput("description? ");
+        BigDecimal setItemCost = getNumberInput("Cost? ");
 
         newItem.setItemName(setItemName);
         newItem.setItemDescription(setItemDescription);
@@ -83,9 +84,9 @@ public class Console {
     }
 
 
-
     public List<ItemDetail> createItemList() {
         List<ItemDetail> listOfItems = new ArrayList<>();
+
         int itemCount = Integer.valueOf(getStringInput("How many items did you buy? "));
         for (int i = 0; i < itemCount; i++) {
             ItemDetail createItem = createItemDetail();
@@ -93,6 +94,38 @@ public class Console {
         }
         return listOfItems;
     }
+
+    private BigDecimal calculateTotalCostOfItems(List<ItemDetail> items) {
+        BigDecimal totalCost = BigDecimal.ZERO;
+
+        for (ItemDetail item : items) {
+            totalCost = totalCost.add(item.getItemCost());
+        }
+        return totalCost;
+    }
+
+    public void calculateBalance(UserDetail user, List<ItemDetail> items) {
+        BigDecimal totalCost = calculateTotalCostOfItems(items);
+
+        if (user.getUserBankAccount().compareTo(totalCost) >= 0) {
+            user.setUserBankAccount(user.getUserBankAccount().subtract(totalCost));
+        } else {
+            System.out.println("Insufficient fund");
+        }
+    }
+
+    NumberFormat currency = NumberFormat.getCurrencyInstance();
+    public void printUserBalance(UserDetail user) {
+        System.out.println("---------WELCOME--------------");
+        System.out.println("Hello " + user.getFullName());
+        System.out.println("Your current balance is " + currency.format(user.getUserBankAccount()));
+    }
+    public Map<UserDetail, List<ItemDetail>> createUserInfoMap(UserDetail user, List<ItemDetail> items) {
+        Map<UserDetail, List<ItemDetail>> userInfoMap = new HashMap<>();
+        userInfoMap.put(user, items);
+        return userInfoMap;
+    }
+
 
 
 }
