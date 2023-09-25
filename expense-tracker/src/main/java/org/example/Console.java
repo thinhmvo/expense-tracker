@@ -86,7 +86,7 @@ public class Console {
 
     public List<ItemDetail> createItemList() {
         List<ItemDetail> listOfItems = new ArrayList<>();
-
+    // Change to a while loop, check if list is empty if not prompt what is the next item.
         int itemCount = Integer.valueOf(getStringInput("How many items did you buy? "));
         for (int i = 0; i < itemCount; i++) {
             ItemDetail createItem = createItemDetail();
