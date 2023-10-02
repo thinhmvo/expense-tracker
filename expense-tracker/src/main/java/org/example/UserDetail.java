@@ -1,8 +1,22 @@
 package org.example;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class UserDetail {
+
+    public UserDetail() {
+    }
+
+    private ItemDetail userItems;
+
+    public UserDetail(String fullName, BigDecimal userBankAcc) {
+        this.fullName = fullName;
+        this.userBankAccount = userBankAcc;
+
+    }
+
+    private BigDecimal userBankAccount;
 
     public BigDecimal getUserBankAccount() {
         return userBankAccount;
@@ -12,9 +26,6 @@ public class UserDetail {
         this.userBankAccount = userBankAccount;
     }
 
-
-
-    private BigDecimal userBankAccount;
 
     public String getFullName() {
         return fullName;
@@ -26,6 +37,15 @@ public class UserDetail {
 
     private String fullName;
 
-    public UserDetail(){};
+
+    public void setUserItems (List<ItemDetail> userItemsList) {
+        this.userItems.setUserItemList(userItemsList);
+    }
+
+    public void getUserItemsList() {
+        this.userItems.getUserItemList();
+    }
+
+
 
 }

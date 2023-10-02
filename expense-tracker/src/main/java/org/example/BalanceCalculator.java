@@ -1,20 +1,45 @@
 package org.example;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class BalanceCalculator {
 
-    private UserDetail user;
-    private ItemDetail item;
-    public BalanceCalculator() {}
-
-//    Needs to connect the user to the list of object then make the calculation
-//    Possibly the list of object needs a credit variable to store sum credit amount.
+    public BalanceCalculator(){};
 
 
+    private List<ItemDetail> getUserItems() {
+        return userItems;
+    }
 
+    private void setUserItems(List<ItemDetail> userItems) {
+        this.userItems = userItems;
+    }
 
+    private BigDecimal userBank;
 
+    private List<ItemDetail> userItems;
+
+    public BalanceCalculator(BigDecimal userBank, List<ItemDetail> userItems) {
+        this.userBank = userBank;
+        this.userItems = userItems;
+    }
+
+    private BigDecimal getItemTotal() {
+        BigDecimal itemTotal = BigDecimal.ZERO;
+        for (ItemDetail item : this.userItems) {
+            item.getItemCost();
+            itemTotal.add(item.getItemCost());
+        }
+
+        return itemTotal.negate();
+    }
+    public BigDecimal calculateTotalBalance() {
+        BigDecimal userBank = this.userBank;
+        BigDecimal totalItem = getItemTotal();
+        userBank.add(totalItem);
+        return this.userBank = userBank;
+    }
 
 
 

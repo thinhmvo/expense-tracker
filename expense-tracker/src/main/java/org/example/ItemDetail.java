@@ -2,16 +2,34 @@ package org.example;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 public class ItemDetail {
+    private List<ItemDetail> userItemList;
 
-    public ItemDetail(String itemDescription, LocalDate date, BigDecimal itemCost) {
+
+
+
+    public void setUserItemList(List<ItemDetail> userItemList) {
+        this.userItemList = userItemList;
+    }
+    public List<ItemDetail> getUserItemList() {
+        return userItemList;
+    }
+    public List<ItemDetail> addItemToList(ItemDetail item) {
+        this.userItemList.add(item);
+        return this.userItemList;
+    }
+
+    public ItemDetail(String itemDescription, BigDecimal itemCost) {
         this.itemDescription = itemDescription;
-        this.date = date;
         this.itemCost = itemCost;
     }
 
-    public ItemDetail(){};
+    public ItemDetail() {
+    }
+
+    ;
 
     public String getItemDescription() {
         return itemDescription;
