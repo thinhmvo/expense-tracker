@@ -34,7 +34,7 @@ public class BalanceCalculator {
 
         return itemTotal.negate();
     }
-    public BigDecimal calculateTotalBalance() {
+    public BigDecimal calculateTotalBalance(List<ItemDetail> userItems) {
         BigDecimal userBank = this.userBank;
         BigDecimal totalItem = getItemTotal();
         userBank.add(totalItem);

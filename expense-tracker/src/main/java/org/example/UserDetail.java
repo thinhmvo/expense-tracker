@@ -11,10 +11,10 @@ public class UserDetail {
 
     private List<ItemDetail> userItems = new ArrayList<>();
 
-    public UserDetail(String fullName, BigDecimal userBankAcc) {
+    public UserDetail(String fullName, BigDecimal userBankAcc, List<ItemDetail> userItems) {
         this.fullName = fullName;
         this.userBankAccount = userBankAcc;
-
+        this.userItems = userItems;
     }
 
     private BigDecimal userBankAccount;
@@ -43,19 +43,18 @@ public class UserDetail {
         this.userItems = userItemsList;
         BalanceCalculator calculator = new BalanceCalculator();
 
-        //To do
-//        this.setUserBankAccount(calculator.calculateTotalBalance(this.userItems));
+        this.setUserBankAccount(calculator.calculateTotalBalance(this.userItems));
     }
 
     public void addItem(ItemDetail item) {
         this.userItems.add(item);
         BalanceCalculator calculator = new BalanceCalculator();
-        //To Do
-//        this.setUserBankAccount(calculator.calculateTotalBalance(this.userItems));
+
+        this.setUserBankAccount(calculator.calculateTotalBalance(this.userItems));
     }
 
-    public void getUserItemsList() {
-//        this.userItems.getUserItemList();
+    public List<ItemDetail> getUserItemsList() {
+        return this.userItems;
     }
 
 

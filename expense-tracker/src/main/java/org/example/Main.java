@@ -11,7 +11,7 @@ public class Main {
 //        UserDetail mikeData = createData.createUser();
 //        List<ItemDetail> mikeItem = createData.createItemList();
 //        mikeData.setUserItems(mikeItem);
-////        BalanceCalculator calculator = new BalanceCalculator(mikeData.getUserBankAccount(), mikeData.getUserItemsList())
+////       BalanceCalculator calculator = new BalanceCalculator(mikeData.getUserBankAccount(), mikeData.getUserItemsList())
 //        BigDecimal newBal = calculator.calculateTotalBalance();
 //        mikeData.setUserBankAccount(newBal);
 //        System.out.println(mikeData.getUserBankAccount());
